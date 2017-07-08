@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    //h1=title
+    //p Welcome to #{title}
+
+    form#lions
+        div.textbox
+            input#lion-name(type='text' required)
+            label lion name
+        div.textbox
+            input#lion-pride(type='text' required)
+            label lion pride
+
+        input#lion-age(type="number")
+        select#lion-gender
+            option(value="female" selected) female
+            option(value="male" ) male
+        button#submit submit
+
+    div.content
+        ul#lion-list
