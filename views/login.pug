@@ -1,0 +1,46 @@
+extends layout
+
+block custom_header
+    script(type='text/javascript').
+        $(document).on('ready', function() {
+            $('#butSubmit').click(function() {
+                alert('ooops!');
+            })
+        })
+
+block content
+    div.sign-content
+        form.sign-form(method='post')
+            h1 Welcome to Express-Blog !
+
+            //p This is the basic look of login form without table
+            label
+                | 用户名 
+                span.small Add your name
+            input(type="text", name="username", id="name", placeholder='username')
+            label
+                | 密码 
+                span.small Min. size 6 chars
+            input(type="password", name="password", id="password", placeholder="password")
+            div.sign-button
+                button#signIn(type="submit") 登录
+                button#signUp(type="submit") 注册
+
+
+
+//- <div class="ui grid">
+//-   <div class="four wide column"></div>
+//-   <div class="eight wide column">
+//-     <form class="ui form segment" method="post">
+//-       <div class="field required">
+//-         <label>用户名</label>
+//-         <input placeholder="用户名" type="text" name="name">
+//-       </div>
+//-       <div class="field required">
+//-         <label>密码</label>
+//-         <input placeholder="密码" type="password" name="password">
+//-       </div>
+//-       <input type="submit" class="ui button fluid" value="登录">
+//-     </form>
+//-   </div>
+//- </div>

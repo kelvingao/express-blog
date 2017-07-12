@@ -1,8 +1,13 @@
 doctype html
 html
     head
+        meta(charset='utf-8')
         title #{title}
         link(rel='stylesheet', href='/css/reset.css')
+        link(rel='stylesheet', href='/css/style.css')
+        script(src='/js/util/jquery-2.2.4.min.js')
+
+        block custom_header
     body
         block content
-        script(src="/js/lions.js")
+        //script(src="/js/lions.js")

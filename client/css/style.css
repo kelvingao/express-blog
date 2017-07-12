@@ -1,0 +1,76 @@
+/*登录注册样式 */
+
+.sign-content{
+    width:450px;
+    height: 300px;
+    margin: 50px auto 10px auto;
+    overflow: hidden;
+    margin-top:8%;
+    border-radius: 4px;
+    border: 1px solid darkgray;
+    box-shadow: -10px 10px 20px gray;
+}
+
+.sign-form {
+    margin:0 auto; 
+    width:400px; 
+    padding:14px; 
+} 
+
+.sign-form h1 {
+    text-align: center;
+    font-size:16px; 
+    font-weight:bold; 
+    margin-bottom:20px; 
+    padding-bottom: 20px;
+    border-bottom:solid 1px #b7ddf2; 
+} 
+.sign-form p{ 
+    font-size:11px; 
+    color:#666666; 
+    margin-bottom:20px; 
+    border-bottom:solid 1px #b7ddf2; 
+    padding-bottom:10px; 
+}
+
+.sign-form label{ 
+    display:block; 
+    font-weight:bold; 
+    text-align:right; 
+    width:140px; 
+    float:left; 
+}
+
+.sign-form .small{ 
+    color:#666666; 
+    display:block; 
+    font-size:11px; 
+    font-weight:normal; 
+    text-align:right; 
+    width:140px; 
+} 
+.sign-form input{ 
+    float:left; 
+    font-size:12px; 
+    padding:4px 2px; 
+    border:solid 1px #aacfe4; 
+    width:200px; 
+    margin:2px 0 20px 10px; 
+} 
+.sign-form button {
+    width: 120px;
+    height: 30px;
+
+}
+.sign-button {
+    margin: 0 auto;
+    width: 260px;
+}
+.sign-form #signIn {
+    float: left;    
+}
+.sign-form #signUp {
+    float: right;
+}
+
+
