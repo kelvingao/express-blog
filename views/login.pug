@@ -3,14 +3,29 @@ extends layout
 block custom_header
     script(type='text/javascript').
         $(document).on('ready', function() {
-            $('#butSubmit').click(function() {
-                alert('ooops!');
+            $('#signIn').click(function(e) {
+                e.preventDefault();
+
+                var b = {};
+                var t = $('form').serializeArray();
+                    $.each(t, function() {
+                    b[this.name] = this.value;
+                });
+
+                fetch('/login', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(b)
+                })
             })
         })
 
 block content
     div.sign-content
-        form.sign-form(method='post')
+        form.sign-form(method='post' action='/login')
             h1 Welcome to Express-Blog !
 
             //p This is the basic look of login form without table

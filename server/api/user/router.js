@@ -1,10 +1,15 @@
 var router = require('express').Router();
+var controller = require(__dirname + '/controller');
 
-// on GET request to the url
+
 router.route('/')
-    .get(function(req, res) {
-        res.render('index', { title: 'liosns'});
-    });
+    .get(controller.get)
+    .post(controller.post)
 
+
+router.route('/:id')
+    .get(controller.getOne)
+    .put(controller.update)
+    .delete(controller.delete)
 
 module.exports = router;

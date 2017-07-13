@@ -3,12 +3,15 @@ var server = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
-//var mongoose = require('mongoose');
-var mongojs = require('mongojs');
-var db = mongojs('localhost:27017/myGame', ['account','progress']);
+var mongoose = require('mongoose');
+var User = require(__dirname + '/api/user/model');
+
+var db = 'mongodb://localhost:27017/expressblog';
+mongoose.connect(db);
 
 server.use(morgan('dev'));
 server.use(bodyParser.urlencoded({extended:true}));
+server.use(bodyParser.json());
 
 var userRoutes = require(__dirname + '/api/user/router');
 var postRoutes = require(__dirname + '/api/post/router')
@@ -41,7 +44,17 @@ var addUser = function(data, cb) {
     });
 }
 ////////////////////////
-
+var config = {
+  dev: 'development',
+  test: 'testing',
+  prod: 'production',
+  port: process.env.PORT || 3000,
+  // 10 days in minutes
+  expireTime: 24 * 60 * 10,
+  secrets: {
+    jwt: process.env.JWT || 'gumball'
+  }
+};
 
 
 server.route('/home')
@@ -60,12 +73,15 @@ server.route('/login')
         res.render('login');
     })
     .post(function(req, res) {
-        console.log(req.body);
+       console.log(req.body);
         isValidPassword(req.body, function(valid) {
             if(valid) {
-                res.redirect('/index');
+                console.log(req.body);
+                res.json({success:'OK'});
             } else
-                res.status(401).send('Error password');
+                //res.render('login');
+                config.log(req.body);
+                res.json({success:'false'});
         })
     });
 
